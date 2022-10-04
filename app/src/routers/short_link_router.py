@@ -1,15 +1,15 @@
 from fastapi import APIRouter, Depends
-from app.src.models.pydantic.short_link import ShortLinkRequest
-from app.src.core.database import get_db
-from app.src.service.short_link_service import ShortLinkService, create_response, verify_url
-from app.src.common.logger import logger_setting
+from src.models.pydantic.short_link import ShortLinkRequest
+from src.core.database import get_db
+from src.service.short_link_service import ShortLinkService, create_response, verify_url
+from src.common.logger import logger_setting
 from starlette.responses import Response
 from starlette.status import HTTP_404_NOT_FOUND, HTTP_302_FOUND, HTTP_400_BAD_REQUEST
 from starlette.responses import RedirectResponse
 from urllib.error import URLError
 from sqlalchemy.orm import Session
 
-PREFIX = "/ab180"
+PREFIX = "/shortlink"
 short_link_route = APIRouter(prefix=PREFIX, tags=["ShortLink"])
 log = logger_setting("INFO")
 

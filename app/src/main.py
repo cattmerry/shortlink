@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 
-from routers import short_link_router
+from src.routers import short_link_router
 
 app = FastAPI(
     title="Short_Link"

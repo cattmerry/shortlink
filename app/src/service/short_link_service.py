@@ -1,5 +1,5 @@
-from app.src.models.sqlalchemy.short_link import ShortLinkUrl, Base
-from app.src.common.logger import logger_setting
+from src.models.sqlalchemy.short_link import ShortLinkUrl, Base
+from src.common.logger import logger_setting
 import string
 import secrets
 from urllib.request import urlopen

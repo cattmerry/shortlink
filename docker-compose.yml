@@ -3,7 +3,7 @@ version: "3.7"
 services:
   shortlink:
     build:
-      context: /src
+      context: ./app
       dockerfile: Dockerfile
     container_name: shortlink
     hostname: shortlink
@@ -20,14 +20,15 @@ services:
     image: mysql:8.0.22
     container_name: shortlinkdb
     hostname: shortlinkdb
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-      - MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     networks:
       - bridge
     volumes:
-      - shortlink
+      - shortlink:/var/lib/mysql
 
 volumes:
   shortlink:
