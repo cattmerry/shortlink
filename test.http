@@ -1,0 +1,48 @@
+### 정상적인 url 요청
+POST http://localhost:80/shortlink/short-links
+Content-Type: application/json
+
+{
+  "url": "https://www.google.com"
+}
+
+### 이미 등록되어 있는 url 요청
+POST http://localhost:80/shortlink/short-links
+Content-Type: application/json
+
+{
+  "url": "https://www.google.com"
+}
+
+### 존재하지 않는 url 요청
+POST http://localhost:80/shortlink/short-links
+Content-Type: application/json
+
+{
+  "url": "https://www.googlessstest.com"
+}
+
+### 잘못된 형식의 url 요청
+POST http://localhost:80/shortlink/short-links
+Content-Type: application/json
+
+{
+  "url": "teststring"
+}
+
+### 등록된 short id 요청
+GET http://localhost:80/shortlink/short-links/jpYNk
+Content-Type: application/json
+
+### 등록되지 않은 short id 요청
+GET http://localhost:80/shortlink/short-links/ysY44
+Content-Type: application/json
+
+### 등록된 short id로 매핑된 url 리다이렉트 요청
+GET http://localhost:80/shortlink/r/ysY3P
+Content-Type: application/json
+
+### 등록되지 않은 short id로 매핑된 url 리다이렉트 요청
+GET http://localhost:80/shortlink/r/ysY44
+Content-Type: application/json
+

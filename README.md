@@ -1,5 +1,5 @@
 # shortlink
-docker container를 활용한 url 단축 서비스
+docker container와 fastapi를 활용한 url 단축 서비스
 ***
 ## 환경
 python 3.10 버전 사용  
@@ -18,4 +18,18 @@ MYSQL_ROOT_PASSWORD="yourpassword"
 최초에 mysql container를 띄우고 shortlink database를 생성해준다.
 ```sql
 create database shortlink;
+```
+***
+### short link 요청
+```http request
+POST http://localhost:80/shortlink/short-links
+Content-Type: application/json
+
+{
+  "url": "https://www.google.com"
+}
+```
+### 생성된 short link로 redirect 요청
+```http request
+GET http://localhost:80/ab180/short-links/{short_link}
 ```
