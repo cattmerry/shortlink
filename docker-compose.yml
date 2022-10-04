@@ -5,5 +5,30 @@ services:
     build:
       context: /src
       dockerfile: Dockerfile
+    container_name: shortlink
+    hostname: shortlink
     environment:
-      - SQLALCHEMY_DATABASE_URL=${SQLALCHEMY_DATABASE_URL}
+      - SQLALCHEMY_DATABASE_URL=mysql+pymysql://root:${MYSQL_ROOT_PASSWORD}@shortlinkdb:3306/shortlink
+    networks:
+      - bridge
+    depends_on:
+      - shortlinkDB
+
+  shortlinkDB:
+    image: mysql:8.0.22
+    container_name: shortlinkdb
+    hostname: shortlinkdb
+    environment:
+      - MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - bridge
+    volumes:
+      - shortlink
+
+volumes:
+  shortlink:
+
+networks:
+  bridge:
