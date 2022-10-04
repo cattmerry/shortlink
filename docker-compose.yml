@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  shortlink:
+    build:
+      context: /src
+      dockerfile: Dockerfile
+    environment:
+      - SQLALCHEMY_DATABASE_URL=${SQLALCHEMY_DATABASE_URL}

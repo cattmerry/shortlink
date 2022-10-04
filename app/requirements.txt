@@ -1,0 +1,4 @@
+sqlalchemy==1.4.32
+fastapi==0.75.0
+pymysql==1.0.2
+uvicorn[standard]

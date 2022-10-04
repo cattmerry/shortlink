@@ -1,0 +1,9 @@
+-- 프로젝트에 사용한 테이블 DDL
+CREATE TABLE `short_link_url` (
+	`short_id` VARCHAR(5) NOT NULL COMMENT 'short id',
+	`create_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 시간',
+	`update_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '변경 시간',
+	`url` TEXT NOT NULL COMMENT 'url',
+	PRIMARY KEY (`short_id`) USING BTREE
+)
+;
